@@ -1,21 +1,40 @@
 /*------------------------------------*\
   #FONTS
 \*------------------------------------*/
+@font-face {
+    font-family: "Clear Sans";
+    font-weight: 200;
+    src: url("../fonts/ClearSans-Light-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Clear Sans";
+    font-weight: 400;
+    src: url("../fonts/ClearSans-Regular-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Clear Sans";
+    font-weight: 600;
+    src: url("../fonts/ClearSans-Medium-webfont.woff") format("woff");
+}
 
 /*------------------------------------*\
   #GENERIC
 \*------------------------------------*/
-
 /*
     Generic: Page
     ---
     Global page styles + universal box-sizing:
 */
-
 html {
-    font-size: 16px;
-    line-height: 24px;
-    font-family: Helvetica, arial, sans-serif;
+    font-size: 18px;
+    line-height: 32px;
+    font-weight: 200px;
+    color: #FFFFFF;
+    background-image: linear-gradient(to bottom right, #0A257D, #061649);
+    background-attachment: fixed;
+    font-family: "Clear Sans", Helvetica, arial, sans-serif;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -33,7 +52,6 @@ html {
  *
  * Customize the background color to match your design.
  */
-
 ::-moz-selection {
     background: #0053FB;
     color: white;
@@ -49,13 +67,11 @@ html {
 /*------------------------------------*\
   #Elements
 \*------------------------------------*/
-
 /*
     Elements: Images
     ---
     Default markup for images to make them responsive
 */
-
 img {
     max-width: 100%;
     vertical-align: top;
@@ -66,7 +82,6 @@ img {
     ---
     Default markup for typographic elements
 */
-
 h1,
 h2,
 h3 {
@@ -107,6 +122,10 @@ table,
 address,
 figure {
     margin: 0 0 24px;
+}
+
+p {
+    max-width: 32em;
 }
 
 ul,
@@ -160,13 +179,11 @@ a:focus {
 /*------------------------------------*\
   #OBJECTS
 \*------------------------------------*/
-
 /*
     Objects: Row
     ---
     Creates a horizontal row that stretches the viewport and adds padding around children
 */
-
 .o-row {
     overflow: auto;
     position: relative;
@@ -174,7 +191,6 @@ a:focus {
 }
 
 /* size modifiers */
-
 .o-row--lg {
     padding: 48px 24px 24px;
 }
@@ -201,11 +217,11 @@ a:focus {
     ---
     Creates a horizontal container that sets de global max-width
 */
-
 .o-container {
     margin-left: auto;
     margin-right: auto;
-    max-width: 56.4em; /* 56.4 * 20px = 1128px */
+    max-width: 71em;
+    /* 56.4 * 20px = 1128px */
 }
 
 /*
@@ -213,24 +229,24 @@ a:focus {
     ---
     Creates vertical whitespace between adjacent sections inside a row
 */
-
 .o-section {
     overflow-x: hidden;
 }
 
-.o-section + .o-section {
+.o-section+.o-section {
     margin-top: 24px;
 }
 
 @media (min-width: 768px) {
-    .o-section--lg + .o-section--lg,
-    .o-section--xl + .o-section--xl {
+
+    .o-section--lg+.o-section--lg,
+    .o-section--xl+.o-section--xl {
         margin-top: 48px;
     }
 }
 
 @media (min-width: 1200px) {
-    .o-section--xl + .o-section--xl {
+    .o-section--xl+.o-section--xl {
         margin-top: 72px;
     }
 }
@@ -242,7 +258,6 @@ a:focus {
     contains the basic structural elements, but classes should be complemented
     with width utilities
 */
-
 .o-layout {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -250,17 +265,16 @@ a:focus {
     flex-wrap: wrap;
 }
 
-    .o-layout__item {
-        width: 100%;
-    }
+.o-layout__item {
+    width: 100%;
+}
 
 /* gutter modifiers, these affect o-layout__item too */
-
 .o-layout--gutter {
     margin: 0 -12px;
 }
 
-.o-layout--gutter > .o-layout__item {
+.o-layout--gutter>.o-layout__item {
     padding: 0 12px;
 }
 
@@ -268,7 +282,7 @@ a:focus {
     margin: 0 -6px;
 }
 
-.o-layout--gutter-sm > .o-layout__item {
+.o-layout--gutter-sm>.o-layout__item {
     padding: 0 6px;
 }
 
@@ -276,18 +290,16 @@ a:focus {
     margin: 0 -24px;
 }
 
-.o-layout--gutter-lg > .o-layout__item {
+.o-layout--gutter-lg>.o-layout__item {
     padding: 0 24px;
 }
 
 /* reverse horizontal row modifier */
-
 .o-layout--row-reverse {
     flex-direction: row-reverse;
 }
 
 /* Horizontal alignment modifiers*/
-
 .o-layout--justify-start {
     justify-content: flex-start;
 }
@@ -313,7 +325,6 @@ a:focus {
 }
 
 /* Vertical alignment modifiers */
-
 .o-layout--align-start {
     align-items: flex-start;
 }
@@ -331,7 +342,6 @@ a:focus {
 }
 
 /* Vertical alignment modifiers that only work if there is one than one flex item */
-
 .o-layout--align-content-start {
     align-content: start;
 }
@@ -357,7 +367,6 @@ a:focus {
     ---
     Small reusable object to remove default list styling from lists
 */
-
 .o-list {
     list-style: none;
     padding: 0;
@@ -366,26 +375,112 @@ a:focus {
 /*------------------------------------*\
   #COMPONENTS
 \*------------------------------------*/
+.c-logo {
+    height: 32px;
+}
+
+.c-logo__symbol {
+    height: 100%;
+}
+
+@media (min-width: 768px) {
+    .c-logo {
+        height: 40px;
+    }
+}
+
+.c-nav {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.c-nav--meta {
+    font-size: 13px;
+}
+
+.c-nav__link {
+    text-decoration: none;
+    font-weight: 400;
+    padding: 8px 0;
+    display: block;
+}
+
+.c-nav__link,
+.c-nav__link:visited,
+.c-nav__link:active {
+    color: #FFFFFF;
+}
+
+.c-nav__link--meta,
+.c-nav__link--meta:visited,
+.c-nav__link--meta:active {
+    color: #6C6C75;
+}
+
+.is-active .c-nav__link,
+.c-nav__link:hover,
+.c-nav__link:focus {
+    color: #DBEDFF;
+    text-shadow: 0px 0px 12px #8EC7FF;
+}
+
+@media (min-width: 768px) {
+    .c-nav__list {
+        display: flex;
+        margin-left: -16px;
+        margin-right: -16px;
+    }
+
+    .c-nav__link {
+        padding: 8px 16px;
+    }
+}
+
+/*
+    Component: header
+    ---
+    Main header of the website
+*/
+.c-header__nav {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .c-header {
+        display: flex;
+        justify-content: space-between;
+        -ms-align-items: center;
+        align-items: center;
+    }
+
+    .c-header__nav {
+        display: block;
+    }
+}
+
+.c-btn {
+    Display: inline-block;
+    Line-height: 24px;
+    Padding: 5px 5px 5px 5px;
+    Background: linear-gradient(to right, #033AA7, #0053FB);
+    Box-shadow: 0px 0px 12px rgba(142, 199, 255, .2);
+}
 
 /*------------------------------------*\
   #UTILITIES
 \*------------------------------------*/
-
 /*
     Utilities: color
     ---
     Utility classes to put specific colors onto elements
 */
-
-.u-color-secondary-base {
-}
+.u-color-secondary-base {}
 
 /*
     Utilities: spacing
     ---
     Utility classes to put specific margins and paddings onto elements
 */
-
 .u-pt-clear {
     padding-top: 0 !important;
 }
@@ -419,7 +514,6 @@ a:focus {
     ---
     Utility classes to put specific max widths onto elements
 */
-
 .u-max-width-xs {
     max-width: 18em !important;
 }
@@ -450,7 +544,6 @@ a:focus {
     Utility classes to put specific widths onto elements
     Will be mostly used on o-layout__item
 */
-
 .u-width-auto {
     width: auto !important;
 }
@@ -503,33 +596,43 @@ a:focus {
     .u-1-of-2-bp1 {
         width: 50% !important;
     }
+
     .u-1-of-3-bp1 {
         width: 33.3333333333% !important;
     }
+
     .u-2-of-3-bp1 {
         width: 66.6666666667% !important;
     }
+
     .u-1-of-4-bp1 {
         width: 25% !important;
     }
+
     .u-3-of-4-bp1 {
         width: 75% !important;
     }
+
     .u-1-of-5-bp1 {
         width: 20% !important;
     }
+
     .u-2-of-5-bp1 {
         width: 40% !important;
     }
+
     .u-3-of-5-bp1 {
         width: 60% !important;
     }
+
     .u-4-of-5-bp1 {
         width: 80% !important;
     }
+
     .u-1-of-6-bp1 {
         width: 16.6666666667% !important;
     }
+
     .u-5-of-6-bp1 {
         width: 83.3333333333% !important;
     }
@@ -539,33 +642,43 @@ a:focus {
     .u-1-of-2-bp2 {
         width: 50% !important;
     }
+
     .u-1-of-3-bp2 {
         width: 33.3333333333% !important;
     }
+
     .u-2-of-3-bp2 {
         width: 66.6666666667% !important;
     }
+
     .u-1-of-4-bp2 {
         width: 25% !important;
     }
+
     .u-3-of-4-bp2 {
         width: 75% !important;
     }
+
     .u-1-of-5-bp2 {
         width: 20% !important;
     }
+
     .u-2-of-5-bp2 {
         width: 40% !important;
     }
+
     .u-3-of-5-bp2 {
         width: 60% !important;
     }
+
     .u-4-of-5-bp2 {
         width: 80% !important;
     }
+
     .u-1-of-6-bp2 {
         width: 16.6666666667% !important;
     }
+
     .u-5-of-6-bp2 {
         width: 83.3333333333% !important;
     }
@@ -575,33 +688,43 @@ a:focus {
     .u-1-of-2-bp3 {
         width: 50% !important;
     }
+
     .u-1-of-3-bp3 {
         width: 33.3333333333% !important;
     }
+
     .u-2-of-3-bp3 {
         width: 66.6666666667% !important;
     }
+
     .u-1-of-4-bp3 {
         width: 25% !important;
     }
+
     .u-3-of-4-bp3 {
         width: 75% !important;
     }
+
     .u-1-of-5-bp3 {
         width: 20% !important;
     }
+
     .u-2-of-5-bp3 {
         width: 40% !important;
     }
+
     .u-3-of-5-bp3 {
         width: 60% !important;
     }
+
     .u-4-of-5-bp3 {
         width: 80% !important;
     }
+
     .u-1-of-6-bp3 {
         width: 16.6666666667% !important;
     }
+
     .u-5-of-6-bp3 {
         width: 83.3333333333% !important;
     }
@@ -611,33 +734,43 @@ a:focus {
     .u-1-of-2-bp4 {
         width: 50% !important;
     }
+
     .u-1-of-3-bp4 {
         width: 33.3333333333% !important;
     }
+
     .u-2-of-3-bp4 {
         width: 66.6666666667% !important;
     }
+
     .u-1-of-4-bp4 {
         width: 25% !important;
     }
+
     .u-3-of-4-bp4 {
         width: 75% !important;
     }
+
     .u-1-of-5-bp4 {
         width: 20% !important;
     }
+
     .u-2-of-5-bp4 {
         width: 40% !important;
     }
+
     .u-3-of-5-bp4 {
         width: 60% !important;
     }
+
     .u-4-of-5-bp4 {
         width: 80% !important;
     }
+
     .u-1-of-6-bp4 {
         width: 16.6666666667% !important;
     }
+
     .u-5-of-6-bp4 {
         width: 83.3333333333% !important;
     }
@@ -646,7 +779,6 @@ a:focus {
 /*------------------------------------*\
   #MEDIA
 \*------------------------------------*/
-
 /*
     Media Queries
     ---
@@ -654,35 +786,29 @@ a:focus {
     These examples override the primary ('mobile first') styles.
     USE THEM INLINE!
 */
-
 /* Extra small devices (portrait phones, less than 576px)
    No media query since this is the default in mobile first design
 */
-
 /* Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {}
 */
-
 /* Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {}
 */
-
 /* Large devices (landscape tablets, desktops, 992px and up)
 @media (min-width: 992px) {}
 */
-
 /* Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {}
 */
-
 /*
     Print styles.
     ---
     Inlined to avoid the additional HTTP request:
     http://www.phpied.com/delay-loading-your-print-css/
 */
-
 @media print {
+
     *,
     *:before,
     *:after {
@@ -693,16 +819,20 @@ a:focus {
         box-shadow: none !important;
         text-shadow: none !important;
     }
+
     a,
     a:visited {
         text-decoration: underline;
     }
+
     a[href]:after {
-        content: " (" attr(href) ")";
+        content: " ("attr(href) ")";
     }
+
     abbr[title]:after {
-        content: " (" attr(title) ")";
+        content: " ("attr(title) ")";
     }
+
     /*
      * Don't show links that are fragment identifiers,
      * or use the `javascript:` pseudo protocol
@@ -711,14 +841,17 @@ a:focus {
     a[href^="javascript:"]:after {
         content: "";
     }
+
     pre {
         white-space: pre-wrap !important;
     }
+
     pre,
     blockquote {
         border: 1px solid #999;
         page-break-inside: avoid;
     }
+
     /*
      * Printing Tables:
      * http://css-discuss.incutio.com/wiki/Printing_Tables
@@ -726,16 +859,19 @@ a:focus {
     thead {
         display: table-header-group;
     }
+
     tr,
     img {
         page-break-inside: avoid;
     }
+
     p,
     h2,
     h3 {
         orphans: 3;
         widows: 3;
     }
+
     h2,
     h3 {
         page-break-after: avoid;
